@@ -1,4 +1,4 @@
-obj-m += module.o
+obj-m += button.o
 
 all:
   make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
