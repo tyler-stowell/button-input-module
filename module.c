@@ -3,7 +3,7 @@
 #include <linux/gpio.h>
 #include <linux/interrupt.h>
 #include <linux/kernel.h>
-MODULE_LICENSE("DUAL BSD/GPL");
+MODULE_LICENSE("Dual BSD/GPL");
 
 #define LED 17
 #define BTN 18
@@ -42,7 +42,7 @@ static int __init test_init(void){
         return 0;
     }
     printk(KERN_INFO "Got irq number\n");
-    if(request_irq(irqNum, (irq_handler_t ) irq_handler, IRQF_TRIGGER_FALLING | IRQF_TRIGGER_RISING, "button handler", "plz work") < 0){
+    if(request_irq(irqNum, (irq_handler_t ) irq_handler, IRQF_TRIGGER_FALLING | IRQF_TRIGGER_RISING, "button handler", NULL) < 0){
         printk(KERN_INFO "Error while making irq request\n");
         gpio_free(BTN);
         gpio_free(LED);
